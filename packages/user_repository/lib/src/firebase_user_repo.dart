@@ -64,8 +64,14 @@ class FirebaseUserRepo implements UserRepository {
   }
 
   @override
-  Future<void> setUserData(MyUser user) {
-    // TODO: implement setUserData
-    throw UnimplementedError();
+  Future<void> setUserData(MyUser myUser) async {
+    try {
+      await usersCollection
+          .doc(myUser.userId)
+          .set(myUser.toEntity().toDocument());
+    } catch (e) {
+      log(e.toString());
+      rethrow;
+    }
   }
 }
