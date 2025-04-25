@@ -4,6 +4,11 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:pizza_app/blocs/authentication_bloc/authentication_bloc.dart';
 
+import '../blocs/sign_in/sign_in_bloc.dart';
+import '../blocs/sign_up/sign_up_bloc.dart';
+import 'sign_in_screen.dart';
+import 'sign_up_screen.dart';
+
 class WelcomeScreen extends StatefulWidget {
   const WelcomeScreen({super.key});
 
@@ -94,7 +99,6 @@ class _WelcomeScreenState extends State<WelcomeScreen>
                             BlocProvider<SignInBloc>(
                               create:
                                   (context) => SignInBloc(
-                                    userRepository:
                                         context.read<AuthenticationBloc>().userRepository,
                                   ),
                               child: const SignInScreen(),
@@ -102,7 +106,6 @@ class _WelcomeScreenState extends State<WelcomeScreen>
                             BlocProvider<SignUpBloc>(
                               create:
                                   (context) => SignUpBloc(
-                                    userRepository:
                                         context.read<AuthenticationBloc>().userRepository,
                                   ),
                               child: const SignUpScreen(),
