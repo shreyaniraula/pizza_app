@@ -10,7 +10,7 @@ class Pizza {
   String description;
   double price;
   double discount;
-  List<Macros> macros;
+  Macros macros;
 
   Pizza({
     required this.pizzaId,
